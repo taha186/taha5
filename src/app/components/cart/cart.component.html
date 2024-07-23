@@ -1,0 +1,47 @@
+
+<section *ngIf="cardselected,else name" class="w-75 mx-auto bg-main-light rounded shadow">
+
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>shop cart</h1>
+        <button (click)="clearall()" class="btn btn-sm btn-main " style="font-size: 15px;">clearall</button>
+
+    </div>
+    
+    <p class="mb-0 text-main">totalacartprice:{{cardselected.totalCartPrice |currency:'EGP'}}</p>
+
+    <div class="row" *ngFor="let item of cardselected.products">
+        <div class="col-md-2">
+            <img class="w-100 mb-2" [src]="item.product.imageCover" alt="">
+            
+
+        </div><div class="col-md-10 d-flex justify-content-between align-items-center">
+          <div>
+            <h2 class="h6">{{item.product.title}}</h2>  
+            <h3 class="h6">
+             {{item.price |currency:'EGP'}}
+            </h3>
+            <button #btnremove (click)="removecart(item.product._id,btnremove)" class="btn p-0 m-0 text-main"><i class="fas fa-trash-can"></i>remove</button>
+ 
+          </div>
+          <div>
+            <button #btn1 (click)="updata(item.product._id,item.count+1,btn1,btn2)" class="btn btn-sm border-success">+</button>
+            <span>{{item.count}}</span>
+            <button #btn2  (click)="updata(item.product._id,item.count-1,btn1,btn2)" class="btn btn-sm border-success">-</button>
+          </div>
+
+        </div>
+    </div>
+
+
+
+    <button class="btn btn-main" [routerLink]="['/checkout',cardselected._id]">on line payment <img src="./assets/images/visa-1.svg" alt=""></button>
+    
+    
+
+</section>
+<ng-template  class="mj" #name> <h2 class="text-center">
+    your cart is empty .....
+</h2>
+    
+   </ng-template>
+

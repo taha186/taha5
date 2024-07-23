@@ -1,0 +1,12 @@
+<p style="font-size: 25px ;font-weight: 500; margin-bottom: 20px; color: #0aad0a;">categary works!</p>
+<section class="justify-content-center align-items-center">
+    <div class="row g-4">
+        <div *ngFor="let item of getallcategary" [routerLink]="['/categarydetail',item._id]" class="col-md-4 col-sm-6 col-lg-3">
+            <img  [src]="item.image" class="w-100" [alt]="item.name">
+            <h3>{{item.name}}</h3>
+
+        </div>
+    </div>
+
+</section>
+

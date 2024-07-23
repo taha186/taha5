@@ -1,0 +1,64 @@
+<section *ngIf="btn1" class="mx-auto w-50 rounded shadow  bg-main-light">
+    <form  [formGroup]="formgroup" (ngSubmit)="forgetpassword()">
+        <div>
+            <label for="email">email</label>
+            <input type="email" class="form-control" formControlName="email" >
+            <button class="btn-main mt-2">forgetpass</button>
+            
+            
+            <div *ngIf="formgroup.get('email')?.errors && formgroup.get('email')?.touched" class="alert alert-danger mx-auto w-50">
+                <p *ngIf="formgroup.get('email')?.getError('required')" class="mb-0 ">
+                    it need required
+
+                </p>
+                <p *ngIf="formgroup.get('email')?.getError('email')" class="mb-0 ">
+                    email is not valid
+
+                </p>
+               
+            </div>
+
+
+           
+            <p *ngif="usermeg"  class="alert alert-danger mx-auto w-50 ">
+                {{usermeg}}
+                 </p>
+
+          
+        </div>
+      
+        
+
+    </form>
+</section>
+
+
+
+
+
+<section *ngIf="btn2" class="mx-auto w-50 rounded shadow  bg-main-light" >
+    <form  [formGroup]="resetpass" (ngSubmit)="resetpassword()">
+        <div>
+            <label for="resetCode">resetCode</label>
+            <input type="text" class="form-control" formControlName="resetCode" >
+            <button class="btn-main mt-2">restpass</button>
+        </div>
+
+    </form>
+</section>
+
+
+<section *ngIf="btn3" class="mx-auto w-50 rounded shadow  bg-main-light" >
+    <form  [formGroup]="updata" (ngSubmit)="putpassword()">
+        <div>
+            <label for="newPassword">newPassword</label>
+            <input type="password" class="form-control" formControlName="newPassword" >
+            <button class="btn-main mt-2">updatapassword</button>
+        </div>
+
+    </form>
+</section>
+
+
+
+

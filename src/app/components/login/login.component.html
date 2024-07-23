@@ -1,0 +1,35 @@
+<section class="mx-auto w-75 mt-5 bg-main-light p-2">
+    <h1>login now</h1>
+    <form  [formGroup]="formgroup"      (ngSubmit)="login()">
+     
+        <div class="div">
+            <label for="email">email</label>
+            <input type="email" id="email" class="form-control" formControlName="email">
+
+            <div class="div alert alert-danger mx-auto w-50 "  *ngIf="formgroup.get('email')?.errors && formgroup.get('email')?.touched" >
+                <p *ngIf="formgroup.get('email')?.getError('required')" >email is required</p>
+                <p *ngIf="formgroup.get('email')?.getError('email')"> email is notvalid</p>
+               
+            </div>
+        </div>
+        <div class="div">
+            <label for="password">password</label>
+            <input type="password" id="password" class="form-control" formControlName="password">
+            <div class="div alert alert-danger mx-auto w-50 "  *ngIf="formgroup.get('password')?.errors && formgroup.get('password')?.touched" >
+                <p *ngIf="formgroup.get('password')?.getError('required')" >password is required</p>
+                <p *ngIf="formgroup.get('password')?.getError('pattern')"> password is notvalid</p>
+               
+            </div>
+        
+        </div>
+      
+       <div class="d-flex  align-items-center justify-content-between">
+        <button   class="mb-2 btn-main "[disabled]="formgroup.invalid" > <span *ngif="isloading"> <i class="fas fa-spin fa-spinner"></i></span>register</button>
+
+        <a class="link-primary" routerLink="/forgetpassword"> forget password</a>
+        
+       </div>
+
+    </form>
+</section>
+

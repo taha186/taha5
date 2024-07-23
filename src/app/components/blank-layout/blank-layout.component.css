@@ -1,0 +1,24 @@
+:host{
+    display: flex;
+    flex-direction: column;
+  
+    min-height: 100vh;
+}.container-fluid{
+    padding-top: 80px;
+}.btn-up{
+    position: fixed;
+    right: 15px;
+    bottom: 10px;
+    width: 40px;
+    height: 40px;
+    z-index: 99;
+    border-radius: 10px;
+    background-color: #0aad0a;
+    border: unset;
+
+
+    
+}.btn-up i{
+    color:#fff;
+    font-size: 20px;
+}

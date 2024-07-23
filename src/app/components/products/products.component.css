@@ -1,0 +1,12 @@
+.home .product .imgcard{
+    overflow: hidden;
+
+}.home .product:hover .imgcard img{
+    transform: scale(1.2);
+}.product .imgcard img{
+    transition: all .5s;
+}.home p{
+    font-weight: 700;
+    font-size: 30px;
+    margin-top: 20px;
+}

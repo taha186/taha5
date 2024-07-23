@@ -1,0 +1,37 @@
+
+
+<section class="justify-content-center align-items-center">
+    <h1 style="font-size: 25px ;font-weight: 500; margin-bottom: 20px; color: #0aad0a;">brands</h1>
+    <div class="row ">
+        <div [routerLink]="['/branddetails',item._id]" *ngFor="let item of getallbrand  |  paginate: { id: 'paginate',
+        itemsPerPage: pageSize,
+        currentPage: currentPage,
+        totalItems: total }" class=" col-md-4 col-sm-6 col-lg-3">
+           <div class="card">
+            <img  [src]="item.image" class="w-100" [alt]="item.name">
+            <br>
+            <h3>{{item.name}}</h3>
+           </div>
+
+        </div>
+    </div>
+    <div class=" d-flex align-items-center mt-5 justify-content-center ">
+        <pagination-controls  id="paginate"
+        (pageChange)="pageChanged($event)"
+        (pageBoundsCorrection)="pageChanged($event)"
+        [maxSize]="9"
+        [directionLinks]="true"
+        [autoHide]="true"
+        [responsive]="true"
+        previousLabel="Previous"
+        nextLabel="Next"
+        screenReaderPaginationLabel="Pagination"
+        screenReaderPageLabel="page"
+        screenReaderCurrentLabel="You're on page">
+</pagination-controls>
+
+    </div>
+
+
+</section>
+
